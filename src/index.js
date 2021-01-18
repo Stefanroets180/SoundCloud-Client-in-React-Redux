@@ -1,7 +1,21 @@
 import 'dotenv/config';
+import cors from 'cors';
+import express from 'express';
 
-const userCredentials = { firstname: 'Robin' };
-const userDetails = { nationality: 'German' };
+const app = express();
+
+app.use(cors());
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}!`),
+);
+
+const userCredentials = { firstname: 'Stafan' };
+const userDetails = { nationality: 'South African' };
 
 const user = {
     ...userCredentials,
